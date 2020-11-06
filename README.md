@@ -1,4 +1,5 @@
-# d-RITS - Disentangled Representation Learning for Medical Time Series
+# d-RITS 
+<!-- - Disentangled Representation Learning for Medical Time Series -->
 
 > Learning *disentangled* representations of input data increases the interpretability 
 > of deep learning models. Interpretable representations are particularly important in 
