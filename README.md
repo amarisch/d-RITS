@@ -47,8 +47,9 @@ Since ***d-RITS*** performs 3 different tasks simultaneously, we evaluate the pe
 
 The area under the precision-recall curve (AUPRC) is our main performance metric; not only is it suitable for evaluating our imbalanced data but also useful in clinical problem settings where high recall is preferred over high accuracy. 
 
-|                          | <td colspan=4>Validation Average Precision (AUPRC) |
-|--------------------------|-------------------|-------------------|-------------------|-------------------|
+|                          | <td colspan=4>Validation Average Precision (AUPRC)
+| -
+<!-- |--------------------------|-------------------|-------------------|-------------------|-------------------| -->
 | Models                   | Lung              | Liver             | GI                | Kidney            |
 | Random Classifier        | 0\.425            | 0\.101            | 0\.420            | 0\.482            |
 | Single Layer Perceptron  | 0\.595±0\.014     | 0\.301±0\.028     | 0\.456±0\.010     | 0\.759±0\.011     |
