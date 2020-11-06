@@ -47,7 +47,7 @@ Since ***d-RITS*** performs 3 different tasks simultaneously, we evaluate the pe
 
 The area under the precision-recall curve (AUPRC) is our main performance metric; not only is it suitable for evaluating our imbalanced data but also useful in clinical problem settings where high recall is preferred over high accuracy. 
 
-| | <td colspan=4>Validation Average Precision (AUPRC) | | | | 
+|  <td colspan=4>Validation Average Precision (AUPRC) ||||| 
 |-|-|-|-|-
 | Models                   | Lung              | Liver             | GI                | Kidney            |
 | Random Classifier        | 0\.425            | 0\.101            | 0\.420            | 0\.482            |
@@ -55,10 +55,52 @@ The area under the precision-recall curve (AUPRC) is our main performance metric
 | Random Forest            | 0\.700±0\.002     | **0\.514±0\.019** | 0\.523±0\.005     | **0\.847±0\.007** |
 | **d-RITS**               | 0\.711±0\.004     | 0\.459±0\.015     | **0\.530±0\.001** | 0\.822±0\.033     |
 | LR based on **d-RITS**   | **0\.713±0\.015** | 0\.449±0\.011     | **0\.530±0\.002** | 0\.824±0\.029     |
-
-![(a)Lung diagnosis prediction](https://github.com/amarisch/d-RITS/blob/main/images/prc/run_prc_plot_Lung_0.png)
-
-
+  
+    
+(a) Lung diagnosis prediction
+![lung](https://github.com/amarisch/d-RITS/blob/main/images/prc/run_prc_plot_Lung_0.png)  
+(b) Liver diagnosis prediction
+![liver](https://github.com/amarisch/d-RITS/blob/main/images/prc/run_prc_plot_Liver_0.png)  
+(c) GI diagnosis prediction
+![gi](https://github.com/amarisch/d-RITS/blob/main/images/prc/run_prc_plot_GI_0.png)  
+(d) Kidney diagnosis prediction
+![kidney](https://github.com/amarisch/d-RITS/blob/main/images/prc/run_prc_plot_Kidney_0.png)  
+  
 #### Disentanglement Evaluation
 
 One of the benefits of learning a disentangled representation is that it makes further processing and learning much easier. A well-disentangled representation produces features that specialize in specific label predictions. When we fit a very simple logistic regression model to our disentangled data, we get clean and comparable performance as shown in the previous plot.
+
+##### Mutual Information
+Mutual information(MI) helps us to measure the *degree of disentangling*. It measures the extent to which one random variable represents another. For instance, given two random variables Y and C, MI measures the decrease in uncertainty about Y if we have the knowledge of C.
+  
+The normalized mutual information of the latent representations can be used to indicate the degree of disentanglement. A better disentangling means that some of the learned features have a higher mutual information with some of the known factors.
+
+| <td colspan=5>Normalized Mutual Information |||||
+|-|-|-|-|-|
+| |<td colspan=4>Class Labels
+| Disentangled Features  | Lung       | Liver           | GI                 | Kidney             |
+|  Lung     | **0\.366** | 0\.068          | 0\.117             | 0\.106             |
+|  Liver    | 0\.071     | **0\.380**      | 0\.083             | 0\.073             |
+|  GI       | 0\.105     | 0\.125          | **0\.235**         | 0\.206             |
+|  Kidney   | 0\.099     | 0\.075          | 0\.172             | **0\.359**         |
+
+
+##### Shapley Values
+  
+No Regularization          |  With Regularization
+:-------------------------:|:-------------------------:
+![noreg](https://github.com/amarisch/d-RITS/blob/main/images/shap/shap_noreg.png)  |  ![reg](https://github.com/amarisch/d-RITS/blob/main/images/shap/shap_elas.png)
+
+
+##### Principal Component Analysis
+
+PCA of the disentangled features allows us to examine how the features are representated in a two-dimensional space.
+
+(a) Lung
+![pcalung](https://github.com/amarisch/d-RITS/blob/main/images/pca/pca_run3_Lung.png)  
+(b) Liver
+![pcaliver](https://github.com/amarisch/d-RITS/blob/main/images/pca/pca_run3_Liver.png)  
+(c) GI
+![pcagi](https://github.com/amarisch/d-RITS/blob/main/images/pca/pca_run3_GI.png)  
+(d) Kidney
+![pcakidney](https://github.com/amarisch/d-RITS/blob/main/images/pca/pca_run3_Kidney.png)  
