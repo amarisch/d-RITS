@@ -83,7 +83,7 @@ Mutual information(MI) helps us to measure the *degree of disentangling*. It mea
   
 The normalized mutual information of the latent representations can be used to indicate the degree of disentanglement. A better disentangling means that some of the learned features have a higher mutual information with some of the known factors.
 
-<td colspan=5>Normalized Mutual Information |||||
+| <td colspan=5>Normalized Mutual Information |||||
 |-|-|-|-|-|
 | <td colspan=4>Class Labels |
 | Disentangled Features  | Lung       | Liver           | GI                 | Kidney             |
