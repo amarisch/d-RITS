@@ -40,7 +40,7 @@ Since ***d-RITS*** performs 3 different tasks simultaneously, we evaluate the pe
 | Forward Feeding             | 0\.71                        | 0\.99                        |
 | Matrix Factorization        | 0\.47                        | 0\.66                        |
 | KNN \(k=100\)               | 0\.54                        | 0\.75                        |
-| *d-RITS *                   | 0\.42&pm0\.01               | 0\.58&pm 0\.01              |
+| **d-RITS**                    | 0\.42±0\.01                  | 0\.58±0\.01                  |
 
 
 #### Classification Evaluation
