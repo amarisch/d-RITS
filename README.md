@@ -7,7 +7,7 @@
 > disentangled representations for organ-related diagnostic predictions. It is capable
 > of imputing missing data with low error rate and performing interpretable classifications.
 
-### Data
+## Data
 
 The patient time series data comes from the MIMIC-III database: https://mimic.physionet.org/mimicdata/.  
 The database contains deidentified health-related data of over 40,000 patients who stayed in the ICU of Beth Israel Deaconness Medical Center from 2001 to 2012.  
@@ -27,7 +27,7 @@ Methods include but not limited to the following:
 
 Labels were generated based on patient's ICD-9 codes into different vital organ categories. More information can be found [here](https://en.wikipedia.org/wiki/List_of_ICD-9_codes).
 
-### Experimental Results
+## Experimental Results
 
 Since ***d-RITS*** performs 3 different tasks simultaneously, we evaluate the performance of each task separately.
 #### Imputation Evaluation
@@ -40,7 +40,7 @@ Since ***d-RITS*** performs 3 different tasks simultaneously, we evaluate the pe
 | Forward Feeding             | 0\.71                        | 0\.99                        |
 | Matrix Factorization        | 0\.47                        | 0\.66                        |
 | KNN \(k=100\)               | 0\.54                        | 0\.75                        |
-| *d-RITS *                   | 0\.42$&pm0\.01               | 0\.58$&pm 0\.01              |
+| *d-RITS *                   | 0\.42&pm0\.01               | 0\.58&pm 0\.01              |
 
 
 #### Classification Evaluation
