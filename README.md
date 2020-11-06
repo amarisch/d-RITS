@@ -85,7 +85,7 @@ The normalized mutual information of the latent representations can be used to i
 
 | <td colspan=5>Normalized Mutual Information |||||
 |-|-|-|-|-|
-| <td colspan=4>Class Labels
+| <td colspan=4>Class Labels |
 | Disentangled Features  | Lung       | Liver           | GI                 | Kidney             |
 |  Lung     | **0\.366** | 0\.068          | 0\.117             | 0\.106             |
 |  Liver    | 0\.071     | **0\.380**      | 0\.083             | 0\.073             |
