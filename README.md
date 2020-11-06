@@ -47,7 +47,7 @@ Since ***d-RITS*** performs 3 different tasks simultaneously, we evaluate the pe
 
 The area under the precision-recall curve (AUPRC) is our main performance metric; not only is it suitable for evaluating our imbalanced data but also useful in clinical problem settings where high recall is preferred over high accuracy. 
 
-|   <td colspan=4>Validation Average Precision (AUPRC)
+| | <td colspan=4>Validation Average Precision (AUPRC) | | | | 
 |-|-|-|-|-
 | Models                   | Lung              | Liver             | GI                | Kidney            |
 | Random Classifier        | 0\.425            | 0\.101            | 0\.420            | 0\.482            |
@@ -55,6 +55,8 @@ The area under the precision-recall curve (AUPRC) is our main performance metric
 | Random Forest            | 0\.700±0\.002     | **0\.514±0\.019** | 0\.523±0\.005     | **0\.847±0\.007** |
 | **d-RITS**               | 0\.711±0\.004     | 0\.459±0\.015     | **0\.530±0\.001** | 0\.822±0\.033     |
 | LR based on **d-RITS**   | **0\.713±0\.015** | 0\.449±0\.011     | **0\.530±0\.002** | 0\.824±0\.029     |
+
+![(a)Lung diagnosis prediction](https://github.com/amarisch/d-RITS/blob/main/images/prc/run_prc_plot_Lung_0.png)
 
 
 #### Disentanglement Evaluation
