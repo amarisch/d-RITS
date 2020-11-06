@@ -29,8 +29,12 @@ Labels were generated based on patient's ICD-9 codes into different vital organ 
 
 ## Experimental Results
 
-Since ***d-RITS*** performs 3 different tasks simultaneously, we evaluate the performance of each task separately.
-#### Imputation Evaluation
+Since ***d-RITS*** performs 3 different tasks simultaneously, we evaluate the performance of each of the following tasks separately:  
+* Imputation
+* Classification
+* Representation Learning
+
+### Imputation Evaluation
 
 [Mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error) and mean relative error (MAE and MRE) are used to evaluate ***d-RITS***'s imputation performance
 
@@ -43,7 +47,7 @@ Since ***d-RITS*** performs 3 different tasks simultaneously, we evaluate the pe
 | **d-RITS**                  | **0\.42±0\.01**              | **0\.58±0\.01**              |
 
 
-#### Classification Evaluation
+### Classification Evaluation
 
 The area under the precision-recall curve (AUPRC) is our main performance metric; not only is it suitable for evaluating our imbalanced data but also useful in clinical problem settings where high recall is preferred over high accuracy. 
 
@@ -66,18 +70,22 @@ The area under the precision-recall curve (AUPRC) is our main performance metric
 (d) Kidney diagnosis prediction
 ![kidney](https://github.com/amarisch/d-RITS/blob/main/images/prc/run_prc_plot_Kidney_0.png)  
   
-#### Disentanglement Evaluation
+### Disentanglement Evaluation
 
-One of the benefits of learning a disentangled representation is that it makes further processing and learning much easier. A well-disentangled representation produces features that specialize in specific label predictions. When we fit a very simple logistic regression model to our disentangled data, we get clean and comparable performance as shown in the previous plot.
+One of the benefits of learning a disentangled representation is that it makes further processing and learning much easier. A well-disentangled representation produces features that specialize in specific label predictions. Three novel methods we used to evaluate disentanglement includes:
+* Simple Model Fitting: when we fit a very simple logistic regression model to our disentangled data, we get clean and comparable performance as shown in the previous plot.
+* Mutual Information(MI): our learned features have high MI with their corresponding labels.
+* Shapley Values: a way to uniformly measure feature importance, and our model only places importance on a selected few features.
+* Principal Component Analysis: our learned features separate our data into distinct clusters in 2D space.
 
-##### Mutual Information
+### Mutual Information
 Mutual information(MI) helps us to measure the *degree of disentangling*. It measures the extent to which one random variable represents another. For instance, given two random variables Y and C, MI measures the decrease in uncertainty about Y if we have the knowledge of C.
   
 The normalized mutual information of the latent representations can be used to indicate the degree of disentanglement. A better disentangling means that some of the learned features have a higher mutual information with some of the known factors.
 
 | <td colspan=5>Normalized Mutual Information |||||
 |-|-|-|-|-|
-| |<td colspan=4>Class Labels
+| <td colspan=4>Class Labels
 | Disentangled Features  | Lung       | Liver           | GI                 | Kidney             |
 |  Lung     | **0\.366** | 0\.068          | 0\.117             | 0\.106             |
 |  Liver    | 0\.071     | **0\.380**      | 0\.083             | 0\.073             |
@@ -85,14 +93,14 @@ The normalized mutual information of the latent representations can be used to i
 |  Kidney   | 0\.099     | 0\.075          | 0\.172             | **0\.359**         |
 
 
-##### Shapley Values
+### Shapley Values
   
 No Regularization          |  With Regularization
 :-------------------------:|:-------------------------:
 ![noreg](https://github.com/amarisch/d-RITS/blob/main/images/shap/shap_noreg.png)  |  ![reg](https://github.com/amarisch/d-RITS/blob/main/images/shap/shap_elas.png)
 
 
-##### Principal Component Analysis
+### Principal Component Analysis
 
 PCA of the disentangled features allows us to examine how the features are representated in a two-dimensional space.
 
