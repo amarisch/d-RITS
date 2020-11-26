@@ -4,7 +4,6 @@
 
 import os
 import sys
-
 import copy
 import torch
 import torch.nn as nn
@@ -13,48 +12,30 @@ import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 
 import numpy as np
-
-import time
-import utils
-import models
-from models import myrits_xcov, myrits_xcov_attn
-import argparse
-import data_loader
 import pandas as pd
+import argparse
 import ujson as ujson
 import json
-
-import time
-
-from sklearn import metrics
-
-from ipdb import set_trace
-
 from time import gmtime, strftime
+
+import utils
+from models import myrits_xcov, myrits_xcov_attn
+import data_loader
 from cross_validation import k_folds
 from pytorchtools import EarlyStopping
-from sklearn.metrics import average_precision_score
-from sklearn.metrics import precision_recall_curve
-from sklearn.metrics import f1_score
-from sklearn.metrics import auc
-from sklearn.metrics import roc_curve
-from sklearn.metrics import roc_auc_score
 
+from sklearn.metrics import average_precision_score, f1_score
+from sklearn.metrics import precision_recall_curve
+from sklearn.metrics import f1_score, auc, roc_curve, roc_auc_score
 from sklearn import preprocessing
 from sklearn.model_selection import RandomizedSearchCV
+from sklearn.metrics import plot_precision_recall_curve
 from itertools import cycle
 from matplotlib import pyplot as plt
-from sklearn.metrics import precision_recall_curve
-from sklearn.metrics import plot_precision_recall_curve
-from sklearn.metrics import f1_score
-from sklearn.metrics import average_precision_score
 import warnings
 warnings.simplefilter("ignore")
 
 parser = argparse.ArgumentParser()
-
-# parser.add_argument('--model', type=str, default=myrits)
-
 parser.add_argument('--hyper', type=str, metavar='FILE',
                         help='path of the file of hyperparameters to use ' +
                              'for training; must be a JSON file',
